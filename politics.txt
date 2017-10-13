@@ -1,0 +1,1 @@
+L,Liberal|C, Conservative|T, Tea Party|S, Socialist|N, Neutral
