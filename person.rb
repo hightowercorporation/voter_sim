@@ -1,4 +1,4 @@
-require '/.person'
+
 
 class Person
 	attr_reader :name

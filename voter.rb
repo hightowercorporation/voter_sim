@@ -1,2 +1,3 @@
 class Voter < Person
+	
 end

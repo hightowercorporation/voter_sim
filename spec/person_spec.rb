@@ -1,4 +1,4 @@
-require './person'
+require './person.rb'
  	
 describe Person do
 	it "can delete a person" do
