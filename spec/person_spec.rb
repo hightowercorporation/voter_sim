@@ -1,28 +1,16 @@
-# require './person.rb'
- 	
-# describe Person do
-# 	it "can delete a person" do
-
-# 	end
+require './person.rb'
 	
-# end
-# 
-#
-#
-
-
-		# Rubyist: David helping Leslie
-		#I-O Avenue, Highway - Fall 2017 cohort
-		# Project-3: Voter Simulation
-		#
-		#Test for Person class object
-		
-		require './person.rb'
-		
-		describe Person do
-			
-			it "is created with a name" do
-				person = Person.new("Delaney")
-				expect(person).to be_a(Person)
-			end
-		end
+describe Person do
+	it "is created with a name" do
+		person = Person.new("Darth Vader")
+		expect(person).to be_a(Person)
+	end
+	it "can list all people" do
+		person = Person.new("Darth Vader")
+	end
+	it "can update a person's name" do
+	end
+	it "can delete a person" do
+	end
+	
+end

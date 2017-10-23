@@ -1,7 +1,3 @@
-# class Politician < Person
-	
-# end
-
 class Politician < Person
 	
 	attr_accessor :registered_party
