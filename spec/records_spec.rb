@@ -21,3 +21,19 @@
 # 	it "can delete a politician"
 	
 # end
+# 
+require './records.rb'
+
+describe Records do
+	it "can create a voter and add it to a voter's array" do
+		records = Records.new
+		records.create_voter("Darth Vader", "Liberal")
+		expect(records.voters.count).to eq(1)
+	end
+	
+	it "can create a politician and add it to a politician's array" do
+		records = Records.new
+		records.create_politician("George Jetson", "Republican")
+		expect(records.politicians.count).to eq(1)
+	end
+end
