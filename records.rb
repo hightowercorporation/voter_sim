@@ -90,4 +90,19 @@ class Records
 			@politicians[index].party = new_party
 		end
 	end
+	
+def delete_voter(name)
+		index = search_voter(name)
+		
+		if index != nil
+			@voters.delete_at(index)			
+		end
+	end
+	def delete_politician(name)
+		index = search_politician(name)
+		
+		if index != nil
+			@politicians.delete_at(index)			
+		end
+	end
 end

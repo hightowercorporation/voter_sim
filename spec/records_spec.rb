@@ -101,4 +101,33 @@ describe Records do
 # 		expect(record.voters[2].name).to eq("Joseph Green") 
 # 		expect(record.voters[2].politics).to eq("Socialist")
 	end
+	
+	it "can delete a voter" do
+		records = Records.new 
+		
+		records.create_voter("Darth Vader", "Liberal")
+		records.create_voter("Lindsay Lohan", "Socialist")
+		
+		expect(records.voters.count).to eq(2)
+		
+		records.delete_voter("Lindsay Lohan")
+		
+		expect(records.voters.count).to eq(1)
+		expect(records.search_voter("Lindsay Lohan")).to eq(nil)
+		
+	end
+	it "can delete a politician" do
+		records = Records.new 
+		
+		records.create_politician("Darth Vader", "Liberal")
+		records.create_politician("Lindsay Lohan", "Socialist")
+		
+		expect(records.politicians.count).to eq(2)
+		
+		records.delete_politician("Lindsay Lohan")
+		
+		expect(records.politicians.count).to eq(1)
+		expect(records.search_politician("Lindsay Lohan")).to eq(nil)
+		
+	end
 end
