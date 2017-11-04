@@ -72,4 +72,22 @@ class Records
 	def search_politician(name)
 		index = @politicians.index{ |politician| politician.name == name}
 	end
+	
+	def update_voter(name, new_name, new_politics)
+		index = search_voter(name)
+		
+		if index != nil
+			@voters[index].name = new_name
+			@voters[index].politics = new_politics
+		end
+	end
+	
+	def update_politician(name, new_name, new_party)
+		index = search_politician(name)
+		
+		if index != nil
+			@politicians[index].name = new_name
+			@politicians[index].party = new_party
+		end
+	end
 end

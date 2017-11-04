@@ -73,4 +73,32 @@ describe Records do
 		expect(index_for_existing_politician).to eq(2)
 		expect(index_for_nonexisting_politician).to eq(nil)
 	end
+
+	it "can update a voter" do
+		record = Records.new
+		
+		record.create_voter("Kyle Jin", "Liberal")
+		record.create_voter("Kimberly June", "Conservative")
+# 		record.create_voter("Kyle Jin", "Liberal")
+		record.update_voter("Kyle Jin", "Joseph Green", "Socialist")
+		
+		expect(record.voters[0].name).to eq("Joseph Green") 
+		expect(record.voters[0].politics).to eq("Socialist")
+# 		expect(record.voters[2].name).to eq("Joseph Green") 
+# 		expect(record.voters[2].politics).to eq("Socialist")
+	end
+	
+	it "can update a politician" do
+		record = Records.new
+		
+		record.create_politician("Sander Van Doorn", "Republican")
+		record.create_politician("Pablo Finduval", "Democrat")
+# 		record.create_voter("Kyle Jin", "Liberal")
+		record.update_politician("Pablo Finduval", "Orlando Mustaffah", "Republican")
+		
+		expect(record.politicians[1].name).to eq("Orlando Mustaffah") 
+		expect(record.politicians[1].party).to eq("Republican")
+# 		expect(record.voters[2].name).to eq("Joseph Green") 
+# 		expect(record.voters[2].politics).to eq("Socialist")
+	end
 end
