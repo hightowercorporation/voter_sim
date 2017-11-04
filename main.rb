@@ -16,6 +16,8 @@ class World
 			puts @records.list
 		when "u", "update", "(u)pdate"
 			update
+		when "d", "delete", "(d)elete"
+			delete
 		when "x", "exit", "e(x)it"
 			return "x"
 		end
@@ -113,6 +115,37 @@ class World
 			when "r", "republican", "(r)epublican"
 				party = "Republican"
 				@records.create_politician(name, party)
+			else
+				Questions.invalid_entry
+			end
+		end
+	end
+	
+	def delete
+		Questions.delete_record
+		name = gets.chomp
+		index_for_voter = @records.search_voter(name)
+        if index_for_voter
+			Questions.delete_check
+			response = gets.chomp.downcase
+			case response
+			when "y", "yes", "(y)es"
+				@records.delete_voter(name)
+			when "n","no","(n)o"
+				Questions.record_is_safe
+			else
+				Questions.invalid_entry
+			end
+		end
+		index_for_politician = @records.search_politician(name)
+		if index_for_politician
+			Questions.delete_check
+			response = gets.chomp.downcase
+			case response
+			when "y", "yes", "(y)es"
+				@records.delete_politician(name)
+			when "n","no","(n)o"
+				Questions.record_is_safe
 			else
 				Questions.invalid_entry
 			end

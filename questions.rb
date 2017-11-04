@@ -51,12 +51,17 @@ module Questions
 
 	def self.delete_record
 		puts "\n""Who would you like to delete?"
+		puts "\n""Name:"
 	end
 
 	def self.delete_check
 		puts "\n""Are you sure?"
+		puts "\n""(Y)es or (N)o"
 	end
 	
+	def self.record_is_safe
+		puts "\n""The record is safe for now!"
+	end
 	def self.cheat
 		puts "Eating the rich"
 		puts "Deleting all voters"
