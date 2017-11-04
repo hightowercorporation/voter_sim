@@ -64,4 +64,8 @@ module Questions
 		puts "Eliminating all credit card debt"
 		puts "42"
 	end
+	
+	def self.invalid_entry
+		puts "Invalid entry, try again"
+	end
 end
