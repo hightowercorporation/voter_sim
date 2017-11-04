@@ -43,10 +43,12 @@ module Questions
 
 	def self.update_politics
 		puts "\n""New Politics"
+		puts "\n""(L)iberal, (C)onservative, (T)ea Party, (S)ocialist, or (N)eutral"
 	end
 
 	def self.update_party
 		puts "\n""New Party?"
+		puts "\n""(D)emocrat or (R)epublican"
 	end
 
 	def self.delete_record
