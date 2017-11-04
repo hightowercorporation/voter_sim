@@ -7,10 +7,18 @@ Questions.main_menu_options
  
 #Loop until user enters exit
 while not exit do
-	 option = gets.chomp
+	option = gets.chomp
 	case option
 	when "create", "CREATE", "Create" , "C",  "c" 
 		puts "Creating"
+		record_type = ""
+		until record_type in('V', 'P') do
+			Questions.create_what
+			record_type = gets.chomp
+		end
+		Questions.create_name
+		name = gets.chomp
+		
 	when "update", "UPDATE", "Update" , "U" , "u"
 		puts "Updating"
 	when "list", "LIST", "List" , "L" , "l"
