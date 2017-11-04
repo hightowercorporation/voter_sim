@@ -36,4 +36,41 @@ describe Records do
 		records.create_politician("George Jetson", "Republican")
 		expect(records.politicians.count).to eq(1)
 	end
+	
+	it "can list all voters and politicians" do
+		records = Records.new
+		records.create_voter("Darth Vader", "Liberal")
+		records.create_politician("George Jetson", "Republican")
+		
+		expected_result = "Voter, Darth Vader, Liberal\nPolitician, George Jetson, Republican\n"
+		expect(records.list).to eq(expected_result)
+	end
+	
+	it "can search for a voter by name" do 
+		records = Records.new
+		
+		records.create_voter("Darth Vader", "Liberal")
+		records.create_voter("Joe Mancuso", "Socialist")
+		records.create_voter("Libby Anderson", "Green Party")
+		
+		index_for_existing_voter = records.search_voter("Darth Vader")
+		index_for_nonexisting_voter = records.search_voter("Q")
+
+		expect(index_for_existing_voter).to eq(0)
+		expect(index_for_nonexisting_voter).to eq(nil)
+	end
+	
+	it "can search for a politician by name" do
+		records = Records.new
+		
+		records.create_politician("Snidely Whiplash", "Democrat")
+		records.create_politician("Henry Fonda", "Republican")
+		records.create_politician("Ken Tirunda", "Independent")
+		
+		index_for_existing_politician = records.search_politician("Ken Tirunda")
+		index_for_nonexisting_politician = records.search_politician("Bobby Henderson")
+		
+		expect(index_for_existing_politician).to eq(2)
+		expect(index_for_nonexisting_politician).to eq(nil)
+	end
 end

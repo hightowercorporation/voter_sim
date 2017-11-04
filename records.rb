@@ -58,5 +58,18 @@ class Records
 		@voters.each do |voter|
 			results += "Voter, #{voter.name}, #{voter.politics}\n"
 		end
+		
+		@politicians.each do |politician|
+			results += "Politician, #{politician.name}, #{politician.party}\n"
+		end
+		return results
+	end
+	
+	def search_voter(name)
+		index = @voters.index{ |voter| voter.name == name}
+	end
+	
+	def search_politician(name)
+		index = @politicians.index{ |politician| politician.name == name}
 	end
 end
