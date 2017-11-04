@@ -108,13 +108,13 @@ class World
 			new_name = gets.chomp
 			Questions.update_party
 			new_party = gets.chomp.downcase
-			case party
+			case new_party
 			when "d", "democrat", "(d)emocrat"
 				party = "Democrat"
-				@records.create_politician(name, party)
+				@records.create_politician(name, new_party)
 			when "r", "republican", "(r)epublican"
 				party = "Republican"
-				@records.create_politician(name, party)
+				@records.create_politician(name, new_party)
 			else
 				Questions.invalid_entry
 			end
